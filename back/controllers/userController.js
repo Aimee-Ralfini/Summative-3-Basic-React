@@ -19,7 +19,7 @@ const getUser = async (req, res, next) => {
 
 const createUser = async (req, res, next) => {
   try {
-    res.send(`new user: ${req.body}`);
+    res.json(`new user: ${JSON.stringify(req.body)}`);
   } catch (error) {
     next(error);
   }
@@ -27,7 +27,7 @@ const createUser = async (req, res, next) => {
 
 const updateUser = async (req, res, next) => {
   try {
-    res.send(`update user: ${req.body}`);
+    res.json(`update user: ${JSON.stringify(req.body)}`);
   } catch (error) {
     next(error);
   }
