@@ -1,7 +1,17 @@
 import "./App.css";
+import { BrowserRouter, NavLink } from "react-router-dom";
+import AppRoutes from "./routes";
+import Nav from "./components/Nav";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <div className="App">
+        <Nav />
+        <AppRoutes />
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
