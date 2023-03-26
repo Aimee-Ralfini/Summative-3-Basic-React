@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 const Login = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const emailHandler = (event) => {
@@ -20,7 +22,7 @@ const Login = () => {
   const loginUser = async () => {
     const user = { email, password };
 
-    const response = await fetch("http://localhost:3000/users/login", {
+    const response = await fetch("http://localhost:3001/users/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +30,14 @@ const Login = () => {
       body: JSON.stringify(user),
     });
     const data = await response.json();
-    console.log(data);
+
+    if (data.error) {
+      console.log(data.error);
+    } else {
+      localStorage.setItem("userId", data._id);
+      localStorage.setItem("userEmail", data.email);
+      navigate("/");
+    }
   };
 
   return (

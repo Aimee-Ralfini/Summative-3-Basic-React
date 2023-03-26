@@ -6,6 +6,7 @@ require("dotenv").config();
 
 // IMPORT ROUTERS
 const userRoutes = require("./routes/userRouter");
+const postRoutes = require("./routes/postRouter");
 
 // INSTANTIATE APP
 const app = express();
@@ -16,6 +17,7 @@ app.use(cors());
 
 // ROUTES
 app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
 
 // DATABASE CONNECTION
 // initial connection attempt to MongoDB

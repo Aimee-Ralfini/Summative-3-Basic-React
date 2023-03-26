@@ -1,14 +1,10 @@
 import { useState } from "react";
 const Register = () => {
   // STATE
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   // HANDLERS
-  const usernameHandler = (event) => {
-    setUsername(event.target.value);
-  };
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -28,9 +24,9 @@ const Register = () => {
   // FUNCTIONS
   const submitNewUser = async (user) => {
     // get form values and put them into an object
-    const newUser = { username, email, password };
+    const newUser = { email, password };
     // send a request to the back end
-    const response = await fetch("http://localhost:3000/users/register", {
+    const response = await fetch("http://localhost:3001/users/register", {
       // set request method to POST
       method: "POST",
       // set request data type to JSON
@@ -51,15 +47,6 @@ const Register = () => {
     <div className="page page--register">
       <h1>Register</h1>
       <form onSubmit={submitHandler}>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            onChange={usernameHandler}
-            type="text"
-            name="username"
-            value={username}
-          />
-        </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
