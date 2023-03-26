@@ -29,7 +29,6 @@ const Register = () => {
   const submitNewUser = async (user) => {
     // get form values and put them into an object
     const newUser = { username, email, password };
-    console.log(JSON.stringify(newUser));
     // send a request to the back end
     const response = await fetch("http://localhost:3000/users/", {
       // set request method to POST
