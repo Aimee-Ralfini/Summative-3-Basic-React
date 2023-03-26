@@ -1,50 +1,21 @@
 const mongoose = require("mongoose");
 const User = require("../models/User");
 
-const getUsers = async (req, res, next) => {
-  try {
-    res.send("all users");
-  } catch (error) {
-    next(error);
-  }
+const registerUser = async (req, res, next) => {
+  res.json({
+    message: "register new user",
+    data: req.body,
+  });
 };
 
-const getUser = async (req, res, next) => {
-  try {
-    res.send(`user id: ${req.params.id}`);
-  } catch (error) {
-    next(error);
-  }
-};
-
-const createUser = async (req, res, next) => {
-  try {
-    res.json(`new user: ${JSON.stringify(req.body)}`);
-  } catch (error) {
-    next(error);
-  }
-};
-
-const updateUser = async (req, res, next) => {
-  try {
-    res.json(`update user: ${JSON.stringify(req.body)}`);
-  } catch (error) {
-    next(error);
-  }
-};
-
-const deleteUser = async (req, res, next) => {
-  try {
-    res.send(`delete user: ${req.params.id}`);
-  } catch (error) {
-    next(error);
-  }
+const loginUser = async (req, res, next) => {
+  res.json({
+    message: "login user",
+    data: req.body,
+  });
 };
 
 module.exports = {
-  getUsers,
-  getUser,
-  createUser,
-  updateUser,
-  deleteUser,
+  loginUser,
+  registerUser,
 };

@@ -30,7 +30,7 @@ const Register = () => {
     // get form values and put them into an object
     const newUser = { username, email, password };
     // send a request to the back end
-    const response = await fetch("http://localhost:3000/users/", {
+    const response = await fetch("http://localhost:3000/users/register", {
       // set request method to POST
       method: "POST",
       // set request data type to JSON
