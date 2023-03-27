@@ -1,15 +1,28 @@
+import { useState, useEffect } from "react";
 import PostList from "../components/posts/PostList";
 import PostCreate from "../components/posts/PostCreate";
 const Home = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    getPosts();
+  }, []);
+
+  const getPosts = async () => {
+    const response = await fetch("http://localhost:3001/posts/");
+    const data = await response.json();
+    setPosts(data);
+  };
+
   const newPostHandler = (event) => {
-    console.log(event);
+    getPosts();
   };
 
   return (
     <div className="page page--home">
       <PostCreate onNewPost={newPostHandler} />
 
-      <PostList />
+      <PostList posts={posts} />
     </div>
   );
 };

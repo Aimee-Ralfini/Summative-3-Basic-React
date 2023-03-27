@@ -1,19 +1,6 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const PostList = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    getPosts();
-  }, []);
-
-  const getPosts = async () => {
-    const response = await fetch("http://localhost:3001/posts/");
-    const data = await response.json();
-    setPosts(data);
-  };
-
+const PostList = ({ posts }) => {
   const postListItems = posts.map((post) => {
     return (
       <li key={post._id}>
