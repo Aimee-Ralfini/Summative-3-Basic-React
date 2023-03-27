@@ -10,6 +10,15 @@ const getPosts = async (req, res) => {
     res.json({ error: err.message });
   }
 };
+const getPost = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    res.json(post);
+  } catch (err) {
+    console.log(err.message);
+    res.json({ error: err.message });
+  }
+};
 
 const createPost = async (req, res) => {
   try {
@@ -31,4 +40,4 @@ const deletePost = async (req, res) => {
   }
 };
 
-module.exports = { getPosts, createPost, deletePost };
+module.exports = { getPosts, getPost, createPost, deletePost };

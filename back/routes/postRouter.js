@@ -1,5 +1,6 @@
 const express = require("express");
 const {
+  getPost,
   getPosts,
   createPost,
   deletePost,
@@ -14,6 +15,7 @@ router.post("/", createPost);
 router.get("/", getPosts);
 
 // get post
+router.get("/:id", getPost);
 
 // edit post
 
