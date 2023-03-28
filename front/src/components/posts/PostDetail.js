@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import PostDelete from "./PostDelete";
 
@@ -23,6 +23,9 @@ const PostDetail = () => {
         <div className="post__detail">
           <h3>{post.title}</h3>
           <p>{post.content}</p>
+          <Link to={`/post/edit/${postId}`}>
+            <button type="button">Edit</button>
+          </Link>
           <PostDelete id={postId} />
         </div>
       ) : null}

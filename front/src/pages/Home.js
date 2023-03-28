@@ -14,13 +14,13 @@ const Home = () => {
     setPosts(data);
   };
 
-  const newPostHandler = (event) => {
+  const postsUpdatedHandler = (event) => {
     getPosts();
   };
 
   return (
     <div className="page page--home">
-      <PostCreate onNewPost={newPostHandler} />
+      <PostCreate onSubmit={postsUpdatedHandler} />
 
       <PostList posts={posts} />
     </div>

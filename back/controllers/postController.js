@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const Post = require("../models/Post");
 
 const getPosts = async (req, res) => {
@@ -30,6 +29,20 @@ const createPost = async (req, res) => {
   }
 };
 
+const editPost = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    post.title = req.body.title;
+    post.content = req.body.content;
+    post.authorId = req.body.authorId;
+    post.save();
+    res.json(post);
+  } catch (err) {
+    console.log(err.message);
+    res.json({ error: err.message });
+  }
+};
+
 const deletePost = async (req, res) => {
   try {
     const deletedPost = await Post.findByIdAndDelete(req.params.id);
@@ -40,4 +53,4 @@ const deletePost = async (req, res) => {
   }
 };
 
-module.exports = { getPosts, getPost, createPost, deletePost };
+module.exports = { getPosts, getPost, createPost, editPost, deletePost };
