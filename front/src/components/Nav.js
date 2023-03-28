@@ -1,11 +1,11 @@
 import { useNavigate, NavLink } from "react-router-dom";
-const Nav = () => {
+const Nav = ({ setLoggedInState }) => {
   const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("userEmail");
-    navigate("/");
+    setLoggedInState(false);
   };
 
   let logoutMarkup;
