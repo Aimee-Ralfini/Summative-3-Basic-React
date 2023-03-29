@@ -16,6 +16,15 @@ const PostDetail = () => {
     getPost();
   }, []);
 
+  const comments = post.comments?.map((comment) => {
+    return (
+      <div className="comment" key={comment._id}>
+        <p>{comment.message}</p>
+        <p>{comment.authorId}</p>
+      </div>
+    );
+  });
+
   return (
     <div className="post-detail">
       <h2>Post Detail View</h2>
@@ -24,6 +33,8 @@ const PostDetail = () => {
         <div className="post__detail">
           <h3>{post.title}</h3>
           <p>{post.content}</p>
+          {comments}
+
           {/* if a user id that matches the authorId of the post is present in the localstorage,
           then that user must be logged in and therefore is allowed to edit and delete, so render the buttons */}
           {localStorage.getItem("userId") === post.authorId ? (
