@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-import Comment from "./Comment.js";
+const Comment = require("./Comment.js");
 
 // add comment as a subdocument of post
 const postSchema = new mongoose.Schema({
@@ -10,7 +10,7 @@ const postSchema = new mongoose.Schema({
   },
   content: { type: String, required: true },
   authorId: { type: mongoose.ObjectId, required: true },
-  comments: [Comment],
+  comments: [Comment.schema],
 });
 
 module.exports = mongoose.model("Post", postSchema);
