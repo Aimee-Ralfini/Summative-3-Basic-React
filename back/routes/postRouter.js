@@ -24,6 +24,7 @@ router.put("/:id", editPost);
 // delete post
 router.delete("/:id", deletePost);
 
-// etc etc
+// comments routes
+router.use("/:postId/comments", require("./commentRouter"));
 
 module.exports = router;
