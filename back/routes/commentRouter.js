@@ -1,5 +1,8 @@
 const express = require("express");
-const { createComment } = require("../controllers/commentController");
+const {
+  createComment,
+  deleteComment,
+} = require("../controllers/commentController");
 
 const router = express.Router({ mergeParams: true });
 
@@ -11,6 +14,7 @@ router.post("/:userId", createComment);
 // edit comment
 
 // delete comment
+router.delete("/:commentId", deleteComment);
 
 // etc etc
 

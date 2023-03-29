@@ -15,4 +15,16 @@ const createComment = async (req, res) => {
   }
 };
 
-module.exports = { createComment };
+const deleteComment = async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.postId);
+    post.comments.pull(req.params.commentId); // pull the comment from the post's comments array
+    const updatedPost = await post.save(); // save the post to the database
+    res.json(updatedPost.comments); // send back the updated comments array to the client
+  } catch (err) {
+    console.log(err.message);
+    res.json({ error: err.message });
+  }
+};
+
+module.exports = { createComment, deleteComment };
