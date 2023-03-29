@@ -27,12 +27,16 @@ const Nav = ({ setLoggedInState }) => {
         <li>
           <NavLink to="/">Home</NavLink>
         </li>
-        <li>
-          <NavLink to="/register">Register</NavLink>
-        </li>
-        <li>
-          <NavLink to="/login">Login</NavLink>
-        </li>
+        {localStorage.getItem("userId") ? null : (
+          <li>
+            <NavLink to="/register">Register</NavLink>
+          </li>
+        )}
+        {localStorage.getItem("userId") ? null : (
+          <li>
+            <NavLink to="/login">Login</NavLink>
+          </li>
+        )}
       </ul>
       {logoutMarkup}
     </nav>
