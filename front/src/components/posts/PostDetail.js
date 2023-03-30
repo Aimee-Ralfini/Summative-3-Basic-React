@@ -19,7 +19,7 @@ const PostDetail = () => {
     setPost(data);
   };
 
-  const comments = post.comments?.map((comment) => {
+  const comments = post?.comments?.map((comment) => {
     return (
       <div className="comment" key={comment._id}>
         <p>{comment.message}</p>
