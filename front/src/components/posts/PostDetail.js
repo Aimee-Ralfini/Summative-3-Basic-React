@@ -6,7 +6,7 @@ import CommentCreate from "./CommentCreate";
 import CommentDelete from "./CommentDelete";
 
 const PostDetail = () => {
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -16,6 +16,7 @@ const PostDetail = () => {
   const getPost = async () => {
     const response = await fetch(`http://localhost:3001/posts/${id}`);
     const data = await response.json();
+    console.log(data);
     setPost(data);
   };
 
@@ -23,8 +24,9 @@ const PostDetail = () => {
     return (
       <div className="comment" key={comment._id}>
         <p>{comment.message}</p>
-        <p>{comment.authorId}</p>
-        {localStorage.getItem("userId") === comment.authorId ? (
+        <p>By: {comment.authorEmail}</p>
+        <p>At: {comment.createdAt}</p>
+        {localStorage.getItem("userId") === comment.author ? (
           <CommentDelete
             postId={post._id}
             commentId={comment._id}
@@ -42,11 +44,14 @@ const PostDetail = () => {
       {post ? (
         <div className="post__detail">
           <h3>{post.title}</h3>
+          {/* The author is the field that is populated on the backend */}
+          <p>By: {post.author.email}</p>
+          <p>At: {post.createdAt}</p>
           <p>{post.content}</p>
 
-          {/* if a user id that matches the authorId of the post is present in the localstorage,
+          {/* if a user id that matches the author of the post is present in the localstorage,
           then that user must be logged in and therefore is allowed to edit and delete, so render the buttons */}
-          {localStorage.getItem("userId") === post.authorId ? (
+          {localStorage.getItem("userId") === post.author ? (
             <div>
               <Link to={`/post/edit/${id}`}>
                 <button type="button">Edit</button>

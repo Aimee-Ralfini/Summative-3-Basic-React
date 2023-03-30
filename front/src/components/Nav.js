@@ -1,7 +1,5 @@
 import { useNavigate, NavLink } from "react-router-dom";
 const Nav = ({ setLoggedInState }) => {
-  const navigate = useNavigate();
-
   const logout = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("userEmail");
