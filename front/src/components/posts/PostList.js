@@ -6,7 +6,11 @@ const PostList = ({ posts }) => {
       <li key={post._id}>
         <Link to={`/post/${post._id}`}>
           <h2>{post.title}</h2>
+          {/* The author field was populated on the back end from the author Id */}
         </Link>
+        <p>
+          By: {post.author.email} at {post.createdAt}
+        </p>
       </li>
     );
   });

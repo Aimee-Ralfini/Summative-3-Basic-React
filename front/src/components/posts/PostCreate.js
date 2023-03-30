@@ -45,7 +45,6 @@ const PostCreate = ({ onSubmit, id: postToBeEditedId }) => {
     const newPost = {
       title,
       content,
-      authorId: localStorage.getItem("userId"),
     };
 
     // if the post is being edited the ternary operators will use PUT instead of POST and add the id of the post being edited to the URL

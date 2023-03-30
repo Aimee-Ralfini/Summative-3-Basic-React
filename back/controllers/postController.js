@@ -3,7 +3,8 @@ const User = require("../models/User");
 
 const getPosts = async (req, res) => {
   try {
-    const posts = await Post.find({});
+    // The populate method will replace the author field with the user's data from the database, so we can access the user's emails and usernames
+    const posts = await Post.find({}).populate("author"); // populate the author field with the user's data from the database
     res.json(posts);
   } catch (err) {
     console.log(err.message);
@@ -13,7 +14,9 @@ const getPosts = async (req, res) => {
 
 const getPost = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.postId);
+    // The populate method will replace the author field with the user's data from the database, so we can access the user's email and username
+    // This only works if the author field is a reference to the user's ID in the database (see the post model)
+    const post = await Post.findById(req.params.postId).populate("author"); // populate the author field with the user's data from the database
     res.json(post);
   } catch (err) {
     console.log(err.message);
@@ -23,11 +26,11 @@ const getPost = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const author = await User.findById(req.params.userId);
     const newPost = {
       ...req.body,
-      authorEmail: author.email,
-      authorId: req.params.userId,
+      // Assign the author field to the user's ID from the URL params (from the route)
+      // This will allow us to populate the author field with the user's data from the database (see the getPost controller)
+      author: req.params.userId,
     };
     const post = await Post.create(newPost);
     res.json(post);
