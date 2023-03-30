@@ -23,7 +23,8 @@ const PostDetail = () => {
     return (
       <div className="comment" key={comment._id}>
         <p>{comment.message}</p>
-        <p>{comment.authorId}</p>
+        <p>By: {comment.authorEmail}</p>
+        <p>At: {comment.createdAt}</p>
         {localStorage.getItem("userId") === comment.authorId ? (
           <CommentDelete
             postId={post._id}
@@ -42,6 +43,8 @@ const PostDetail = () => {
       {post ? (
         <div className="post__detail">
           <h3>{post.title}</h3>
+          <p>By: {post.authorEmail}</p>
+          <p>At: {post.createdAt}</p>
           <p>{post.content}</p>
 
           {/* if a user id that matches the authorId of the post is present in the localstorage,

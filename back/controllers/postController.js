@@ -1,4 +1,5 @@
 const Post = require("../models/Post");
+const User = require("../models/User");
 
 const getPosts = async (req, res) => {
   try {
@@ -22,7 +23,12 @@ const getPost = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const newPost = { ...req.body, authorId: req.params.userId };
+    const author = await User.findById(req.params.userId);
+    const newPost = {
+      ...req.body,
+      authorEmail: author.email,
+      authorId: req.params.userId,
+    };
     const post = await Post.create(newPost);
     res.json(post);
   } catch (err) {
