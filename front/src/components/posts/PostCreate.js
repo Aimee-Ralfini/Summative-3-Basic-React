@@ -18,7 +18,7 @@ const PostCreate = ({ onSubmit, id }) => {
         // set the values of the fields to the values of the existing post
         setTitle(data.title);
         setContent(data.content);
-        setAuthor(data.authorId);
+        setAuthor(localStorage.getItem("userId"));
       };
       getPost();
     }
@@ -48,7 +48,11 @@ const PostCreate = ({ onSubmit, id }) => {
   // it also switches the request method from POST to PUT
   // these changes mean the data is matched with the edit route on the API ('PUT to posts/:id' vs 'POST to posts/')
   const submitForm = async () => {
-    const newPost = { title, content, authorId };
+    const newPost = {
+      title,
+      content,
+      authorId: localStorage.getItem("userId"),
+    };
     const response = await fetch(
       `http://localhost:3001/posts/${id ? id : ""}`,
       {
@@ -58,6 +62,8 @@ const PostCreate = ({ onSubmit, id }) => {
       }
     );
     const data = await response.json();
+    setTitle("");
+    setContent("");
     if (response.ok) {
       onSubmit(data);
     }
@@ -86,20 +92,6 @@ const PostCreate = ({ onSubmit, id }) => {
             value={content}
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="author">Author Id</label>
-          <input
-            onChange={authorHandler}
-            type="text"
-            name="author"
-            value={authorId}
-          />
-        </div>
-        {title}
-        <br />
-        {content}
-        <br />
-        {authorId}
         {/* change button text depending on id presence */}
         <button type="submit">{id ? "Submit Edit" : "Create Post"}</button>
       </form>
