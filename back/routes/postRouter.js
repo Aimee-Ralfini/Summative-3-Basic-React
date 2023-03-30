@@ -10,19 +10,19 @@ const {
 const router = express.Router();
 
 // create post
-router.post("/", createPost);
+router.post("/:userId", createPost);
 
 // get posts
 router.get("/", getPosts);
 
 // get post
-router.get("/:id", getPost);
+router.get("/:postId", getPost);
 
 // edit post
-router.put("/:id", editPost);
+router.put("/:postId", editPost);
 
 // delete post
-router.delete("/:id", deletePost);
+router.delete("/:postId", deletePost);
 
 // comments routes
 router.use("/:postId/comments", require("./commentRouter"));

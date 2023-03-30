@@ -9,9 +9,10 @@ const getPosts = async (req, res) => {
     res.json({ error: err.message });
   }
 };
+
 const getPost = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.postId);
     res.json(post);
   } catch (err) {
     console.log(err.message);
@@ -21,7 +22,8 @@ const getPost = async (req, res) => {
 
 const createPost = async (req, res) => {
   try {
-    const post = await Post.create(req.body);
+    const newPost = { ...req.body, authorId: req.params.userId };
+    const post = await Post.create(newPost);
     res.json(post);
   } catch (err) {
     console.log(err.message);
@@ -31,10 +33,9 @@ const createPost = async (req, res) => {
 
 const editPost = async (req, res) => {
   try {
-    const post = await Post.findById(req.params.id);
+    const post = await Post.findById(req.params.postId);
     post.title = req.body.title;
     post.content = req.body.content;
-    post.authorId = req.body.authorId;
     post.save();
     res.json(post);
   } catch (err) {
@@ -45,7 +46,7 @@ const editPost = async (req, res) => {
 
 const deletePost = async (req, res) => {
   try {
-    const deletedPost = await Post.findByIdAndDelete(req.params.id);
+    const deletedPost = await Post.findByIdAndDelete(req.params.postId);
     res.json(deletedPost);
   } catch (err) {
     console.log(err.message);
