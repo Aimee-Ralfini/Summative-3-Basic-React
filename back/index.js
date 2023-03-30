@@ -12,10 +12,15 @@ const postRoutes = require("./routes/postRouter");
 const app = express();
 
 // INITIAL MIDDLEWARE
+// parse incoming requests with JSON payloads
 app.use(express.json());
+// enable CORS
 app.use(cors());
 
 // ROUTES
+/* these are the main routes that the app will use, 
+the rest of the routes are nested within these using router.use()
+ see the comments in the router files for more info */
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
 

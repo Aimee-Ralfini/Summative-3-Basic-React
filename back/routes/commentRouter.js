@@ -1,4 +1,5 @@
 const express = require("express");
+// import the controller functions
 const {
   createComment,
   deleteComment,
