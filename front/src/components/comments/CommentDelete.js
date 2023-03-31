@@ -23,6 +23,7 @@ const CommentDelete = ({ postId, commentId, refreshComments }) => {
 
   return (
     <div className="component comment-delete">
+      <h2>CommentDelete Component</h2>
       <button onClick={handleDelete}>Delete</button>
     </div>
   );

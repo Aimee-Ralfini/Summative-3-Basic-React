@@ -14,7 +14,9 @@ const PostList = ({ posts }) => {
     return (
       <li key={post._id}>
         <Link to={`/post/${post._id}`}>
-          <h2>{post.title}</h2>
+          <p>
+            <strong>{post.title}</strong>
+          </p>
           {/* The author field was populated on the back end from the author Id */}
         </Link>
         <p>
@@ -27,7 +29,7 @@ const PostList = ({ posts }) => {
   // render the list of posts
   return (
     <div className="component post-list">
-      <h2>post list</h2>
+      <p>PostList Component</p>
       <ul>{postListItems}</ul>
     </div>
   );

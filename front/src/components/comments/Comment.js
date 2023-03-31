@@ -13,9 +13,14 @@ import CommentDelete from "./CommentDelete";
 const Comment = ({ comment, postId, refreshComments }) => {
   return (
     <div className="component comment">
-      <p>{comment.message}</p>
-      <p>By: {comment.author.email}</p>
-      <p>At: {comment.createdAt}</p>
+      <h2>Comment Component</h2>
+      <div className="comment__body">
+        <p>{comment.message}</p>
+        <div className="comment__details">
+          <p>By: {comment.author.email}</p>
+          <p>At: {comment.createdAt}</p>
+        </div>
+      </div>
       {localStorage.getItem("userId") === comment.author._id ? (
         <CommentDelete
           postId={postId}

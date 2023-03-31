@@ -53,7 +53,7 @@ const Register = () => {
   // RENDER TEMPLATE
   return (
     <div className="page register">
-      <h1>Register</h1>
+      <h1>Register Page</h1>
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="email">Email</label>

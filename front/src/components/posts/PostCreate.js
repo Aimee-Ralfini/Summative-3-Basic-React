@@ -96,8 +96,9 @@ const PostCreate = ({ onSubmit, id: postToBeEditedId }) => {
 
   return (
     <div className="component post-create">
+      <h2>PostCreate Component (dual mode)</h2>
       {/* change title depending on id presence */}
-      {postToBeEditedId ? <h2>Editing: {title}</h2> : <h2>Create New Post</h2>}
+      {postToBeEditedId ? <h3>Editing: {title}</h3> : <h3>Create New Post</h3>}
       <form onSubmit={submitHandler}>
         <div className="form-group">
           <label htmlFor="title">Title</label>
