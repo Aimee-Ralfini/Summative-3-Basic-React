@@ -1,6 +1,15 @@
+/* 
+  This component is responsible for displaying a list of posts.
+  It is used on the Home page, and is passed the posts as a prop.
+  It maps over the posts and displays the title, author, and date of each post.
+  Note, each post title is a link to the post detail page, using the react-router-dom Link component.
+  The author field was populated on the back end from the author Id.
+*/
+
 import { Link } from "react-router-dom";
 
 const PostList = ({ posts }) => {
+  // map over the posts and create a list item for each post in an array
   const postListItems = posts.map((post) => {
     return (
       <li key={post._id}>
@@ -15,6 +24,7 @@ const PostList = ({ posts }) => {
     );
   });
 
+  // render the list of posts
   return (
     <div className="posts">
       <h2>post list</h2>

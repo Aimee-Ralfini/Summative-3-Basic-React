@@ -18,7 +18,7 @@ const createComment = async (req, res) => {
       // spread the data from the request body into the new comment
       ...req.body,
       // assign the author field to the user's ID from the URL params (from the route)
-      authorId: req.params.userId,
+      author: req.params.userId,
       // create a new comment with the data from the request body and the user's ID from the URL params (from the route)
     });
     // add the comment to the post's comments array (this is a subdocument)
