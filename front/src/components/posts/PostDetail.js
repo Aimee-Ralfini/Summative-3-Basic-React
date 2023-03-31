@@ -3,10 +3,7 @@
   It is used in the Post page, and gets the id of the post to render from the url.
   Using the id, it makes a fetch request to the backend to get the post data.
   It then renders the post data.
-  It also renders the CommentCreate component, which is used to create a new comment,
-  as well as the CommentDelete component, which is used to delete a comment.
-
-  The comments, and the delete and create imports, should probably be moved to their own component, but I didn't do that here, maybe later.
+  It also renders the CommentCreate component, which is used to create a new comment.
 */
 
 import { useState, useEffect } from "react";
