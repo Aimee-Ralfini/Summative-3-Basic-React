@@ -29,7 +29,7 @@ const PostList = ({ posts }) => {
   // render the list of posts
   return (
     <div className="component post-list">
-      <p>PostList Component</p>
+      <h2>PostList Component</h2>
       <ul>{postListItems}</ul>
     </div>
   );
