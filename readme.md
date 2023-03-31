@@ -1,4 +1,4 @@
-This project is a full stack React that allows users to register, log in, and then create, read, update and delete posts. It is very simple, showcasing the bare minimum needed to get things working. It is not meant to be a production ready application.
+This project is a full stack React/MongoDB application that allows users to register, log in, and then create, read, update and delete posts. It is very simple, showcasing the bare minimum needed to get things working. It is not meant to be a production ready application.
 
 The main features that it showcases are:
 
