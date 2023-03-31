@@ -26,9 +26,9 @@ const PostList = ({ posts }) => {
 
   // render the list of posts
   return (
-    <div className="posts">
+    <div className="component post-list">
       <h2>post list</h2>
-      <ul className="posts__list">{postListItems}</ul>
+      <ul>{postListItems}</ul>
     </div>
   );
 };

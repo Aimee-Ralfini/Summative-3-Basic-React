@@ -23,7 +23,7 @@ const PostDelete = ({ id }) => {
   };
 
   return (
-    <div className="post__delete">
+    <div className="component post-delete">
       <button
         onClick={(e) => {
           deletePost();

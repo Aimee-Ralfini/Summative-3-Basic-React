@@ -5,7 +5,7 @@
 import PostDetail from "../components/posts/PostDetail";
 const Post = () => {
   return (
-    <div>
+    <div className="page post ">
       <PostDetail />
     </div>
   );

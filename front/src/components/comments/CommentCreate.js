@@ -42,7 +42,7 @@ const CommentCreate = ({ refreshComments }) => {
   };
 
   return (
-    <div>
+    <div className="component comment-create">
       <form onSubmit={handleSubmit}>
         <label htmlFor="comment">Comment</label>
         <input

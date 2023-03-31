@@ -62,7 +62,7 @@ const Login = ({ setLoggedInState }) => {
   };
 
   return (
-    <div className="page page--login">
+    <div className="page login">
       <h1>Login</h1>
       <form onSubmit={submitHandler}>
         <div className="form-group">

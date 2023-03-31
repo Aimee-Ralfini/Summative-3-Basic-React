@@ -95,7 +95,7 @@ const PostCreate = ({ onSubmit, id: postToBeEditedId }) => {
   };
 
   return (
-    <div className="post__create">
+    <div className="component post-create">
       {/* change title depending on id presence */}
       {postToBeEditedId ? <h2>Editing: {title}</h2> : <h2>Create New Post</h2>}
       <form onSubmit={submitHandler}>

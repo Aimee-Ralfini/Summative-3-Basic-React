@@ -52,11 +52,11 @@ const PostDetail = () => {
 
   // render the post data
   return (
-    <div className="post-detail">
+    <div className="component post-detail">
       <h2>Post Detail View</h2>
       {/* if there is a post, render the post, else render nothing */}
       {post ? (
-        <div className="post__detail">
+        <div>
           <h3>{post.title}</h3>
           {/* The author is the field that is populated on the backend */}
           <p>By: {post.author.email}</p>
