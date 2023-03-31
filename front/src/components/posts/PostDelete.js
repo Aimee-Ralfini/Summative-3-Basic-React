@@ -1,6 +1,6 @@
 /*
   This component is used to delete a post.
-  It is used in the PostDetail component.
+  It is used in the Comment component.
   It is passed the id of the post to delete as a prop.
   When the delete button is clicked, it makes a fetch request to the backend to delete the post.
 */
