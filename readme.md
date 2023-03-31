@@ -9,3 +9,20 @@ The main features that it showcases are:
 3. Comments are subdocuments of posts, and are created and deleted by add or removing them from the post document itself. This is a good way to do it, as it allows you to get all the comments for a post by getting the post, and then getting the comments from the post document itself.
 
 I will continue to add to this, such as more robust error handling and validation, image upload, and a proper authentication system, but it should serve as a basic framework that can help you figure out how to do things.
+
+## Setup
+
+1. Clone the repo
+1. Create a `.env` file in the `back` directory and add the following:
+
+```bash
+DB_STRING=<your_mongo_uri>
+PORT=3001
+```
+
+3. Run `npm install` in the `back` directory
+1. Run `npx nodemon server.js` in the `back` directory to start the server
+1. Run `npm install` in the `front` directory
+1. Run `npm start` in the `front` directory to start the client
+1. Register a user and then log in
+1. Try it out!
