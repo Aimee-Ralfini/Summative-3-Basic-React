@@ -1,7 +1,9 @@
-/* Posts require full CRUD functionality, so we'll need to create controllers for all four CRUD operations.
-Posts contain an author field, which is a reference to the user's ID in the database, so we'll need to use the populate method to replace the author field with the user's data from the database.
-Populate is a method that replaces the specified field with the data from the referenced model. This gives us access to the user's emails and usernames.
-Since posts have comments embedded in them, which have their own authors, we'll need to use the populate method to replace the comment author fields with the user's data from the database too. */
+/* 
+  Posts require full CRUD functionality, so we'll need to create controllers for all four CRUD operations.
+  Posts contain an author field, which is a reference to the user's ID in the database, so we'll need to use the populate method to replace the author field with the user's data from the database.
+  Populate is a method that replaces the specified field with the data from the referenced model. This gives us access to the user's emails and usernames.
+  Since posts have comments embedded in them, which have their own authors, we'll need to use the populate method to replace the comment author fields with the user's data from the database too. 
+*/
 
 const Post = require("../models/Post");
 

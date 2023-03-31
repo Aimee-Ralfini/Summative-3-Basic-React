@@ -5,6 +5,7 @@ const {
   deleteComment,
 } = require("../controllers/commentController");
 
+// create a router, and set mergeParams to true so that we can access the params from the parent router
 const router = express.Router({ mergeParams: true });
 
 // create comment

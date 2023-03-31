@@ -43,9 +43,9 @@ const PostDetail = () => {
     return (
       <div className="comment" key={comment._id}>
         <p>{comment.message}</p>
-        <p>By: {comment.authorEmail}</p>
+        <p>By: {comment.author.email}</p>
         <p>At: {comment.createdAt}</p>
-        {localStorage.getItem("userId") === comment.author ? (
+        {localStorage.getItem("userId") === comment.author._id ? (
           <CommentDelete
             postId={post._id}
             commentId={comment._id}
@@ -71,7 +71,7 @@ const PostDetail = () => {
 
           {/* if a user id that matches the author of the post is present in the localstorage,
           then that user must be logged in and therefore is allowed to edit and delete, so render the buttons */}
-          {localStorage.getItem("userId") === post.author ? (
+          {localStorage.getItem("userId") === post.author._id ? (
             <div>
               <Link to={`/post/edit/${id}`}>
                 <button type="button">Edit</button>
