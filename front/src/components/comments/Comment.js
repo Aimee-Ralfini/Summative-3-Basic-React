@@ -12,7 +12,7 @@ import CommentDelete from "./CommentDelete";
 
 const Comment = ({ comment, postId, refreshComments }) => {
   return (
-    <div className="comment">
+    <div className="component comment">
       <p>{comment.message}</p>
       <p>By: {comment.author.email}</p>
       <p>At: {comment.createdAt}</p>
