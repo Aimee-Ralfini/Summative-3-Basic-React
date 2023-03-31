@@ -42,11 +42,14 @@ const CommentCreate = ({ refreshComments }) => {
   };
 
   return (
-    <div>
+    <div className="component comment-create">
+      <h2>CommentCreate Component</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="comment">Comment</label>
-        <input
-          type="text"
+        <textarea
+          rows="7"
+          cols="70"
+          name="comment"
           id="comment"
           value={comment}
           onChange={(e) => setComment(e.target.value)}

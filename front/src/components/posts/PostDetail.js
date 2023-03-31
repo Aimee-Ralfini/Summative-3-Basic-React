@@ -52,12 +52,12 @@ const PostDetail = () => {
 
   // render the post data
   return (
-    <div className="post-detail">
-      <h2>Post Detail View</h2>
+    <div className="component post-detail">
+      <h2>PostDetail Component</h2>
       {/* if there is a post, render the post, else render nothing */}
       {post ? (
-        <div className="post__detail">
-          <h3>{post.title}</h3>
+        <div>
+          <h3>Title: {post.title}</h3>
           {/* The author is the field that is populated on the backend */}
           <p>By: {post.author.email}</p>
           <p>At: {post.createdAt}</p>
@@ -78,6 +78,8 @@ const PostDetail = () => {
           ) : null}
         </div>
       ) : null}
+      <hr />
+      <h3>Comments</h3>
       {comments}
     </div>
   );

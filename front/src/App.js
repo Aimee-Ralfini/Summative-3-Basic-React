@@ -17,7 +17,7 @@
   Calling this function will cause the App component to re-render, which will cause all of its children to re-render as well.
   */
 
-import "./App.css";
+import "./App.scss";
 import { useState, useEffect } from "react";
 import { BrowserRouter } from "react-router-dom";
 import AppRoutes from "./routes";

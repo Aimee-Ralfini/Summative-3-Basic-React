@@ -25,8 +25,8 @@ const EditPost = () => {
   };
 
   return (
-    <div className="edit-post">
-      <h1>Edit Post</h1>
+    <div className="page edit-post">
+      <h1>Edit Post Page</h1>
       <PostCreate onSubmit={postsUdpatedHandler} id={id} />
     </div>
   );

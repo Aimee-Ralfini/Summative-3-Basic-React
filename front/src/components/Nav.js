@@ -37,7 +37,7 @@ const Nav = ({ setLoggedInState }) => {
 
   // render the navigation menu
   return (
-    <nav>
+    <nav className="component nav">
       <ul>
         <li>
           <NavLink to="/">Home</NavLink>
@@ -52,6 +52,12 @@ const Nav = ({ setLoggedInState }) => {
             <NavLink to="/login">Login</NavLink>
           </li>
         )}
+        <li>
+          <NavLink to="/about">About</NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact">Contact</NavLink>
+        </li>
       </ul>
       {logoutMarkup}
     </nav>

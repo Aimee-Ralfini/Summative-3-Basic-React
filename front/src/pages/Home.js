@@ -48,7 +48,8 @@ const Home = () => {
   };
 
   return (
-    <div className="page page--home">
+    <div className="page home">
+      <h1>Home Page</h1>
       {localStorage.getItem("userId") ? (
         <PostCreate onSubmit={postsUpdatedHandler} />
       ) : null}
