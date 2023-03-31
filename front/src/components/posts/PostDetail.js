@@ -12,9 +12,12 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 
+// import the PostDelete component
 import PostDelete from "./PostDelete";
-import CommentCreate from "./CommentCreate";
-import CommentDelete from "./CommentDelete";
+// import the Comment component
+import Comment from "../comments/Comment";
+// import the CommentCreate component
+import CommentCreate from "../comments/CommentCreate";
 
 const PostDetail = () => {
   // state to hold the post data
@@ -41,18 +44,12 @@ const PostDetail = () => {
   // map over the comments array and render each comment
   const comments = post?.comments?.map((comment) => {
     return (
-      <div className="comment" key={comment._id}>
-        <p>{comment.message}</p>
-        <p>By: {comment.author.email}</p>
-        <p>At: {comment.createdAt}</p>
-        {localStorage.getItem("userId") === comment.author._id ? (
-          <CommentDelete
-            postId={post._id}
-            commentId={comment._id}
-            refreshComments={getPost}
-          />
-        ) : null}
-      </div>
+      <Comment
+        key={comment._id}
+        comment={comment}
+        postId={id}
+        refreshComments={getPost}
+      />
     );
   });
 
